@@ -1,26 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { ChromePicker } from "react-color";
 
 interface ColorInputProps {
-  onColorChange: (color: string) => void;
+  label?: string;
+  color: string;
+  onChange: (color: string) => void;
+  showHex?: boolean;
 }
 
-const ColorInput: React.FC<ColorInputProps> = ({ onColorChange }) => {
-  const [color, setColor] = useState("#ff5733");
+const ColorInput: React.FC<ColorInputProps> = ({
+  label = "Base Color",
+  color,
+  onChange,
+  showHex = true,
+}) => {
+  const [showPicker, setShowPicker] = useState(false);
+  const popoverRef = useRef<HTMLDivElement | null>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setColor(e.target.value);
-    onColorChange(e.target.value);
+  const handleClickOutside = (e: MouseEvent) => {
+    if (popoverRef.current && !popoverRef.current.contains(e.target as Node)) {
+      setShowPicker(false);
+    }
+  };
+
+  useEffect(() => {
+    if (showPicker) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showPicker]);
+
+  const handleChange = (colorResult: any) => {
+    onChange(colorResult.hex);
   };
 
   return (
-    <div className="flex flex-col">
-      <label className="text-lg font-semibold mb-2">Enter Base Color</label>
-      <input
-        type="color"
-        value={color}
-        onChange={handleInputChange}
-        className="border-2 border-gray-300 p-2 rounded-md"
+    <div className="w-full max-w-sm flex flex-col gap-2 relative">
+      {label && <label className="text-xl font-bold">{label}</label>}
+
+      <button
+        onClick={() => setShowPicker(!showPicker)}
+        className="w-10 h-10 rounded-md border shadow-sm"
+        style={{ backgroundColor: color }}
+        title="Click to pick a color"
       />
+
+      {showHex && <span className="text-xl font-semibold">{color}</span>}
+
+      {showPicker && (
+        <div
+          ref={popoverRef}
+          className="absolute z-50 mt-2"
+          style={{ top: "100%", left: 20 }}
+        >
+          <ChromePicker color={color} onChange={handleChange} />{" "}
+        </div>
+      )}
     </div>
   );
 };

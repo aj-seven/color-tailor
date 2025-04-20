@@ -21,10 +21,9 @@ const App = () => {
 
   return (
     <div className="min-h-dvh flex flex-col mx-auto max-w-4xl justify-center p-3">
-      <ColorInput onColorChange={handleColorChange} />
+      <ColorInput color={baseColor} onChange={handleColorChange} />
       {Object.keys(shades).length > 0 && (
         <>
-          <h1 className="text-2xl font-semibold mt-2"> {baseColor} </h1>
           <PalettePreview shades={shades} />
           <TailwindConfigOutput shades={shades} baseColorName="myColor" />
         </>
