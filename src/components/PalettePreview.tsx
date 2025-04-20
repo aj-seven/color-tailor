@@ -18,13 +18,13 @@ const getContrastRatio = (backgroundColor: string, textColor: string) => {
 
 const PalettePreview: React.FC<PalettePreviewProps> = ({ shades }) => {
   return (
-    <div className="flex flex-wrap w-4xl gap-4 mt-4">
+    <div className="flex flex-wrap w-4xl gap-4 mt-2">
       {Object.entries(shades).map(([shade, color]) => {
         const textColor = getTextColor(color);
         const contrastRatio = getContrastRatio(color, textColor);
 
         return (
-          <div key={shade} className="relative w-16 h-16 rounded-lg shadow-md">
+          <div key={shade} className="relative w-20 h-20 rounded-lg shadow-md">
             <div
               className="absolute inset-0 flex items-center justify-center text-sm text-white font-semibold"
               style={{ color: textColor }}
