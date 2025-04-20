@@ -29,19 +29,19 @@ const TailwindConfigOutput: React.FC<TailwindConfigOutputProps> = ({
   };
 
   return (
-    <div>
-      <h1 className="mt-2 text-xl underline font-semibold">
+    <div className="relative mt-4">
+      <h1 className="text-xl underline font-semibold mb-2">
         Tailwind Config Output:
       </h1>
-      <pre className="mt-1 bg-gray-800 text-white p-4 rounded-md whitespace-pre-wrap">
-        {generateTailwindConfig()}
-      </pre>
-      <button
-        onClick={handleCopy}
-        className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md shadow-md"
-      >
-        Copy Tailwind Config
-      </button>
+      <div className="relative bg-gray-800 text-white p-4 pt-10 rounded-md">
+        <button
+          onClick={handleCopy}
+          className="absolute top-2 right-2 px-4 py-1 rounded-md shadow-md border border-gray-600 hover:bg-gray-700 font-medium text-sm"
+        >
+          Copy
+        </button>
+        <pre className="whitespace-pre-wrap">{generateTailwindConfig()}</pre>
+      </div>
     </div>
   );
 };
