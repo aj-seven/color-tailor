@@ -20,7 +20,7 @@ Clone the repository, install the dependencies and start the application
 git clone git@github.com:Aj-Seven/color-tailor.git
 cd color-tailor
 npm install
-npm start
+npm run dev
 
 # For Build and serving static pages
 npm run build
@@ -37,10 +37,10 @@ git clone --depth=1 https://github.com/Aj-Seven/color-tailor.git
 ## 🤝 Contributing
 Contributions are welcome! Whether it's a bug fix, feature suggestion, or code enhancement — your help makes ColorTailor better for everyone.
 
-_How to contribute:_
+**_How to contribute:_**
 
 - Fork this repository
 - Create a new branch: `git checkout -b feature/my-feature`
 - Make your changes and commit: `git commit -m "Add my feature"`
-- Push to your fork: `it push origin feature/my-feature`
+- Push to your fork: `git push origin feature/my-feature`
 - Open a pull request 🚀
