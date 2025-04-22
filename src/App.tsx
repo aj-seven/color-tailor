@@ -4,6 +4,7 @@ import PalettePreview from "./components/PalettePreview";
 import TailwindConfigOutput from "./components/TailwindConfigOutput";
 import { generateShades } from "./utils/colorUtils";
 import { PreviewComponents } from "./components/PreviewComponents";
+import ExportOptions from "./components/ExportOptions";
 
 const App = () => {
   const [baseColor, setBaseColor] = useState("#ffffff");
@@ -26,6 +27,7 @@ const App = () => {
       {Object.keys(shades).length > 0 && (
         <>
           <PalettePreview shades={shades} />
+          <ExportOptions shades={shades} baseColorName="myColor" />
           <TailwindConfigOutput shades={shades} baseColorName="myColor" />
           <PreviewComponents colorName="myColor" shades={shades} />
         </>
