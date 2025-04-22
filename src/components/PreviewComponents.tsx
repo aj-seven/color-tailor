@@ -1,0 +1,98 @@
+import React, { useState } from "react";
+import { getContrastText } from "../utils/colorUtils";
+
+interface PreviewComponentsProps {
+  colorName: string;
+  shades: Record<number, string>;
+}
+
+export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
+  colorName,
+  shades,
+}) => {
+  const [view, setView] = useState(false);
+
+  return (
+    <div className="mt-4 border-t border-gray-300">
+      <div className="flex flex-row mt-1">
+        <h2 className="text-2xl text-center font-bold">Components Preview</h2>
+        <button
+          onClick={() => setView(!view)}
+          className="ml-4 bg-cyan-500 hover:bg-cyan-600 px-4 py-1 rounded-md shadow-md font-medium"
+        >
+          {view ? "Hide" : "View"}
+        </button>
+      </div>
+      {view && (
+        <div className="mt-2 space-y-4">
+          <h2 className="text-lg">Color Name - {colorName}</h2>
+
+          {/* Buttons */}
+          <section className="space-y-1">
+            <h3 className="text-lg font-semibold underline">Buttons</h3>
+            <div className="flex flex-wrap gap-4">
+              {Object.entries(shades).map(([shade, color]) => (
+                <button
+                  key={`btn-${shade}`}
+                  style={{
+                    backgroundColor: color,
+                    color: getContrastText(color),
+                  }}
+                  className="px-4 py-2 rounded-md shadow-md font-medium transition hover:scale-105"
+                >
+                  Shade {shade}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {/* Cards */}
+          <section className="space-y-1">
+            <h3 className="text-lg font-semibold underline">Cards</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {Object.entries(shades).map(([shade, color]) => (
+                <div
+                  key={`card-${shade}`}
+                  style={{ backgroundColor: color }}
+                  className="rounded-xl p-4 shadow-md"
+                >
+                  <h4
+                    className="font-semibold mb-1"
+                    style={{ color: getContrastText(color) }}
+                  >
+                    Card Shade {shade}
+                  </h4>
+                  <p
+                    className="text-sm"
+                    style={{ color: getContrastText(color, 0.8) }}
+                  >
+                    Background with shade {shade}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Badges */}
+          <section className="space-y-1">
+            <h3 className="text-lg font-semibold underline">Badges</h3>
+            <div className="flex flex-wrap gap-3">
+              {Object.entries(shades).map(([shade, color]) => (
+                <span
+                  key={`badge-${shade}`}
+                  style={{
+                    backgroundColor: color,
+                    color: getContrastText(color),
+                  }}
+                  className="px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  {shade}
+                </span>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+    </div>
+  );
+};
