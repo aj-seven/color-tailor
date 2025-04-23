@@ -46,23 +46,25 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({
   };
 
   return (
-    <div className="mt-4 space-x-2">
-      <h2 className="text-lg font-semibold mb-2 underline">Export Options:</h2>
+    <div className="mt-2 space-x-1 space-y-2 dark:text-white">
+      <h2 className="text-lg font-semibold mb-2 underline dark:text-white">
+        Export Options:
+      </h2>
       <button
         onClick={() => handleDownload("json")}
-        className="px-4 py-1 rounded-md shadow border bg-white text-black hover:bg-gray-100"
+        className="px-4 py-1 rounded-md shadow border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
       >
         Download JSON
       </button>
       <button
         onClick={() => handleDownload("js")}
-        className="px-4 py-1 rounded-md shadow border bg-white text-black hover:bg-gray-100"
+        className="px-4 py-1 rounded-md shadow border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
       >
         Download JS Config
       </button>
       <button
         onClick={() => handleDownload("ts")}
-        className="px-4 py-1 rounded-md shadow border bg-white text-black hover:bg-gray-100"
+        className="px-4 py-1 rounded-md shadow border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
       >
         Download TS Config
       </button>
