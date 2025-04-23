@@ -46,7 +46,7 @@ const ColorInput: React.FC<ColorInputProps> = ({
 
       <button
         onClick={() => setShowPicker(!showPicker)}
-        className="w-20 h-10 rounded-md border shadow-sm hover:shadow-lg transition"
+        className="w-20 h-10 rounded-md border shadow-sm transition"
         style={{ backgroundColor: color }}
         title="Click to pick a color"
       />
