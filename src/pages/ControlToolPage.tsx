@@ -24,14 +24,14 @@ const ColorToolPage = () => {
   return (
     <div
       id="content"
-      className="bg-gradient-to-b from-white via-gray-100 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-white flex flex-col mx-auto max-w-6xl px-4 py-20 space-y-10"
+      className="bg-gradient-to-b from-white via-gray-100 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-white flex flex-col mx-auto max-w-6xl px-4 py-20 space-y-4"
     >
       <ColorInput color={baseColor} onChange={handleColorChange} />
       {Object.keys(shades).length > 0 && (
         <>
           <PalettePreview shades={shades} />
-          <ExportOptions shades={shades} baseColorName="myColor" />
           <TailwindConfigOutput shades={shades} baseColorName="myColor" />
+          <ExportOptions shades={shades} baseColorName="myColor" />
           <PreviewComponents colorName="myColor" shades={shades} />
         </>
       )}

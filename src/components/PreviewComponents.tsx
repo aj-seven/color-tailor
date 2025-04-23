@@ -16,11 +16,11 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
     <div className="mt-4 border-t border-gray-300 dark:border-gray-700">
       <div className="flex flex-row mt-1">
         <h2 className="text-2xl text-center font-bold text-gray-900 dark:text-white">
-          Components Preview
+          Components Preview -
         </h2>
         <button
           onClick={() => setView(!view)}
-          className="ml-4 bg-cyan-500 hover:bg-cyan-600 px-4 py-1 rounded-md shadow-md font-medium text-white dark:text-gray-900"
+          className="ml-2 bg-blue-500 hover:bg-blue-600 px-4 py-1 rounded-md shadow-md font-bold text-white dark:text-gray-900"
         >
           {view ? "Hide" : "View"}
         </button>
@@ -44,7 +44,7 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
                     backgroundColor: color,
                     color: getContrastText(color),
                   }}
-                  className="px-4 py-2 rounded-md shadow-md font-medium transition hover:scale-105"
+                  className="px-4 py-2 border border-gray-400 dark:border-gray-700 rounded-md shadow-sm font-medium transition hover:scale-105"
                 >
                   Shade {shade}
                 </button>
@@ -62,7 +62,7 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
                 <div
                   key={`card-${shade}`}
                   style={{ backgroundColor: color }}
-                  className="rounded-xl p-4 shadow-md"
+                  className="rounded-xl p-4 border border-gray-400 dark:border-gray-700 shadow-sm"
                 >
                   <h4
                     className="font-semibold mb-1 text-gray-900 dark:text-white"
@@ -94,7 +94,7 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
                     backgroundColor: color,
                     color: getContrastText(color),
                   }}
-                  className="px-3 py-1 rounded-full text-sm font-medium"
+                  className="px-3 py-1 border border-gray-400 dark:border-gray-700 rounded-full text-sm font-medium"
                 >
                   {shade}
                 </span>
