@@ -30,13 +30,13 @@ const TailwindConfigOutput: React.FC<TailwindConfigOutputProps> = ({
 
   return (
     <div className="relative mt-4">
-      <h1 className="text-xl underline font-semibold mb-2">
+      <h1 className="text-xl underline font-semibold mb-2 text-gray-900 dark:text-white">
         Tailwind Config Output:
       </h1>
-      <div className="relative bg-gray-800 text-white p-4 pt-10 rounded-md">
+      <div className="relative bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-4 pt-10 rounded-md shadow-md">
         <button
           onClick={handleCopy}
-          className="absolute top-2 right-2 px-4 py-1 rounded-md shadow-md border border-gray-600 hover:bg-gray-700 font-medium text-sm"
+          className="absolute top-2 right-2 px-4 py-1 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium text-sm"
         >
           Copy
         </button>

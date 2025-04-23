@@ -13,23 +13,29 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
   const [view, setView] = useState(false);
 
   return (
-    <div className="mt-4 border-t border-gray-300">
+    <div className="mt-4 border-t border-gray-300 dark:border-gray-700">
       <div className="flex flex-row mt-1">
-        <h2 className="text-2xl text-center font-bold">Components Preview</h2>
+        <h2 className="text-2xl text-center font-bold text-gray-900 dark:text-white">
+          Components Preview
+        </h2>
         <button
           onClick={() => setView(!view)}
-          className="ml-4 bg-cyan-500 hover:bg-cyan-600 px-4 py-1 rounded-md shadow-md font-medium"
+          className="ml-4 bg-cyan-500 hover:bg-cyan-600 px-4 py-1 rounded-md shadow-md font-medium text-white dark:text-gray-900"
         >
           {view ? "Hide" : "View"}
         </button>
       </div>
       {view && (
         <div className="mt-2 space-y-4">
-          <h2 className="text-lg">Color Name - {colorName}</h2>
+          <h2 className="text-lg text-gray-900 dark:text-white">
+            Color Name - {colorName}
+          </h2>
 
           {/* Buttons */}
           <section className="space-y-1">
-            <h3 className="text-lg font-semibold underline">Buttons</h3>
+            <h3 className="text-lg font-semibold underline text-gray-900 dark:text-white">
+              Buttons
+            </h3>
             <div className="flex flex-wrap gap-4">
               {Object.entries(shades).map(([shade, color]) => (
                 <button
@@ -48,7 +54,9 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
 
           {/* Cards */}
           <section className="space-y-1">
-            <h3 className="text-lg font-semibold underline">Cards</h3>
+            <h3 className="text-lg font-semibold underline text-gray-900 dark:text-white">
+              Cards
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Object.entries(shades).map(([shade, color]) => (
                 <div
@@ -57,13 +65,13 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
                   className="rounded-xl p-4 shadow-md"
                 >
                   <h4
-                    className="font-semibold mb-1"
+                    className="font-semibold mb-1 text-gray-900 dark:text-white"
                     style={{ color: getContrastText(color) }}
                   >
                     Card Shade {shade}
                   </h4>
                   <p
-                    className="text-sm"
+                    className="text-sm text-gray-700 dark:text-gray-300"
                     style={{ color: getContrastText(color, 0.8) }}
                   >
                     Background with shade {shade}
@@ -75,7 +83,9 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
 
           {/* Badges */}
           <section className="space-y-1">
-            <h3 className="text-lg font-semibold underline">Badges</h3>
+            <h3 className="text-lg font-semibold underline text-gray-900 dark:text-white">
+              Badges
+            </h3>
             <div className="flex flex-wrap gap-3">
               {Object.entries(shades).map(([shade, color]) => (
                 <span
