@@ -1,38 +1,18 @@
-import React, { useState, useEffect } from "react";
-import ColorInput from "./components/ColorInput";
-import PalettePreview from "./components/PalettePreview";
-import TailwindConfigOutput from "./components/TailwindConfigOutput";
-import { generateShades } from "./utils/colorUtils";
-import { PreviewComponents } from "./components/PreviewComponents";
-import ExportOptions from "./components/ExportOptions";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Hero from "./components/Hero";
+import ColorToolPage from "./pages/ControlToolPage";
+import Navbar from "./components/Navbar";
 
 const App = () => {
-  const [baseColor, setBaseColor] = useState("#ffffff");
-  const [shades, setShades] = useState<Record<number, string>>({});
-
-  useEffect(() => {
-    const generatedShades = generateShades(baseColor);
-    setShades(generatedShades);
-  }, []);
-
-  const handleColorChange = (color: string) => {
-    setBaseColor(color);
-    const generatedShades = generateShades(color);
-    setShades(generatedShades);
-  };
-
   return (
-    <div className="min-h-dvh bg-white dark:bg-gray-900 flex flex-col mx-auto max-w-6xl justify-center p-3 py-20">
-      <ColorInput color={baseColor} onChange={handleColorChange} />
-      {Object.keys(shades).length > 0 && (
-        <>
-          <PalettePreview shades={shades} />
-          <ExportOptions shades={shades} baseColorName="myColor" />
-          <TailwindConfigOutput shades={shades} baseColorName="myColor" />
-          <PreviewComponents colorName="myColor" shades={shades} />
-        </>
-      )}
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/get-started" element={<ColorToolPage />} />
+      </Routes>
+    </>
   );
 };
 
