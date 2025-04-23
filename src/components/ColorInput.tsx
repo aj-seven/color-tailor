@@ -9,7 +9,7 @@ interface ColorInputProps {
 }
 
 const ColorInput: React.FC<ColorInputProps> = ({
-  label = "Base Color",
+  label = "Select Base Color:",
   color,
   onChange,
   showHex = true,
@@ -37,25 +37,33 @@ const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   return (
-    <div className="w-full max-w-sm flex flex-col gap-2 relative">
-      {label && <label className="text-xl font-bold">{label}</label>}
+    <div className="w-full max-w-sm flex flex-row gap-2 items-center relative dark:border-gray-700">
+      {label && (
+        <label className="text-xl font-bold text-gray-900 dark:text-white">
+          {label}
+        </label>
+      )}
 
       <button
         onClick={() => setShowPicker(!showPicker)}
-        className="w-10 h-10 rounded-md border shadow-sm"
+        className="w-20 h-10 rounded-md border shadow-sm hover:shadow-lg transition"
         style={{ backgroundColor: color }}
         title="Click to pick a color"
       />
 
-      {showHex && <span className="text-xl font-semibold">{color}</span>}
+      {showHex && (
+        <span className="text-xl font-semibold text-gray-900 dark:text-white">
+          {color}
+        </span>
+      )}
 
       {showPicker && (
         <div
           ref={popoverRef}
-          className="absolute z-50 mt-2"
+          className="absolute z-50 mt-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg"
           style={{ top: "100%", left: 20 }}
         >
-          <ChromePicker color={color} onChange={handleChange} />{" "}
+          <ChromePicker color={color} onChange={handleChange} />
         </div>
       )}
     </div>

@@ -22,7 +22,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-dvh flex flex-col mx-auto max-w-4xl justify-center p-3">
+    <div className="min-h-dvh bg-white dark:bg-gray-900 flex flex-col mx-auto max-w-6xl justify-center p-3 py-20">
       <ColorInput color={baseColor} onChange={handleColorChange} />
       {Object.keys(shades).length > 0 && (
         <>
