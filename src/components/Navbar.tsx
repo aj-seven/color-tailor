@@ -5,10 +5,20 @@ const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setDarkMode(storedTheme === "dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    const rootElement = document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      rootElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      rootElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
 
