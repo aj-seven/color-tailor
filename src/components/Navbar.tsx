@@ -25,15 +25,17 @@ const Navbar = () => {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <nav className="fixed top-0 z-10 w-full overflow-x-hidden bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700">
+    <nav className="fixed top-0 z-10 w-full overflow-x-hidden bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img className="h-10 w-10" src="/assets/image.png" alt="Logo" />
-            <span className="text-lg font-bold text-gray-900 dark:text-white">
-              ColorTailor
-            </span>
+            <a href="/" className="flex flex-row items-center gap-2">
+              <img className="h-10 w-10" src="/assets/image.png" alt="Logo" />
+              <span className="text-lg font-bold text-gray-900 dark:text-white">
+                CT
+              </span>
+            </a>
           </div>
 
           <div className="flex items-center space-x-4">
