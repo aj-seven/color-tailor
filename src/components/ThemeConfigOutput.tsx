@@ -44,7 +44,7 @@ const ThemeConfigOutput: React.FC<ThemeConfigOutputProps> = ({ theme }) => {
 
       {show && (
         <>
-          <div className="flex flex gap-3">
+          <div className="flex gap-3">
             <button
               onClick={handleCopy}
               className="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full md:w-auto"
