@@ -3,19 +3,36 @@ import { ChromePicker } from "react-color";
 
 interface ColorInputProps {
   label?: string;
-  color: string;
-  onChange: (color: string) => void;
+  defaultColor?: string;
   showHex?: boolean;
+  onChange: (color: string) => void;
+  storageKey?: string;
 }
 
 const ColorInput: React.FC<ColorInputProps> = ({
   label = "Select Base Color:",
-  color,
-  onChange,
+  defaultColor = "#4f46e5", // Default to indigo-600
   showHex = true,
+  onChange,
+  storageKey = "baseColor",
 }) => {
+  const [color, setColor] = useState(defaultColor);
   const [showPicker, setShowPicker] = useState(false);
   const popoverRef = useRef<HTMLDivElement | null>(null);
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(storageKey);
+    if (stored) setColor(stored);
+  }, [storageKey]);
+
+  // Store to localStorage when changed
+  const handleChange = (colorResult: any) => {
+    const hex = colorResult.hex;
+    setColor(hex);
+    localStorage.setItem(storageKey, hex);
+    onChange(colorResult.hex);
+  };
 
   const handleClickOutside = (e: MouseEvent) => {
     if (popoverRef.current && !popoverRef.current.contains(e.target as Node)) {
@@ -31,10 +48,6 @@ const ColorInput: React.FC<ColorInputProps> = ({
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showPicker]);
-
-  const handleChange = (colorResult: any) => {
-    onChange(colorResult.hex);
-  };
 
   return (
     <div className="w-full max-w-sm flex flex-row gap-2 items-center relative dark:border-gray-700">
