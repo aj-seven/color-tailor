@@ -15,8 +15,8 @@ export const PreviewComponents: React.FC<PreviewComponentsProps> = ({
   return (
     <div className="mt-4 border-t border-gray-300 dark:border-gray-700">
       <div className="flex flex-row mt-1">
-        <h2 className="text-2xl text-center font-bold text-gray-900 dark:text-white">
-          Components Preview -
+        <h2 className="text-xl text-center font-bold text-gray-900 dark:text-white">
+          Components Preview (Single Base Color) -
         </h2>
         <button
           onClick={() => setView(!view)}
