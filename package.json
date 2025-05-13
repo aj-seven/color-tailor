@@ -2,14 +2,14 @@
   "name": "color-tailor",
   "author": {
     "name": "Aj7",
-    "url": "https://aj7.pages.dev"
+    "url": "https://aj7.is-a.dev"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/aj-seven/color-tailor"
   },
-  "version": "0.0.1",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -23,6 +23,7 @@
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
+    "react-type-animation": "^3.2.0",
     "tinycolor2": "^1.6.0"
   },
   "devDependencies": {

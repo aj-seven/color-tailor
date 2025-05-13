@@ -33,3 +33,26 @@ export const getContrastText = (hex: string, opacity = 1): string => {
   const color = luminance > 0.6 ? "black" : "white";
   return `rgba(${color === "black" ? "0,0,0" : "255,255,255"},${opacity})`;
 };
+
+export const generateTheme = (baseColor: string) => {
+  const theme: Record<string, any> = {};
+
+  const primary = generateShades(baseColor);
+  const secondary = generateShades(chroma(baseColor).set("hsl.h", "+30").hex());
+  const accent = generateShades(
+    chroma(baseColor).brighten(1).saturate(2).hex()
+  );
+  const neutral = generateShades("#6b7280"); // Tailwind's gray-500ish
+
+  const bgLight = chroma(baseColor).luminance() > 0.5 ? "#ffffff" : "#111827";
+  const fgLight = chroma(bgLight).luminance() > 0.5 ? "#111827" : "#ffffff";
+
+  theme.primary = primary;
+  theme.secondary = secondary;
+  theme.accent = accent;
+  theme.neutral = neutral;
+  theme.background = bgLight;
+  theme.foreground = fgLight;
+
+  return theme;
+};
