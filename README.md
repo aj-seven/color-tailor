@@ -44,3 +44,5 @@ Contributions are welcome! Whether it's a bug fix, feature suggestion, or code e
 - Make your changes and commit: `git commit -m "Add my feature"`
 - Push to your fork: `git push origin feature/my-feature`
 - Open a pull request 🚀
+
+<!-- GitAds-Verify: R4X9PHYDA2AMVFXDK6BO79XB9KIK4GFH -->
